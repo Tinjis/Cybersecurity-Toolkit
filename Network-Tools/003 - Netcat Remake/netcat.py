@@ -11,5 +11,6 @@ def execute(cmd):
     if not cmd:
         return
     
-    output = subprocess.check_output(shlex.split(cmd), stderr=subprocess.STDOUT)
+    cmd_list = shlex.split(cmd)
+    output = subprocess.check_output(cmd_list, stderr=subprocess.STDOUT)
     return output.decode()
