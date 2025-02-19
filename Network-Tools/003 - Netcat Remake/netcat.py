@@ -63,11 +63,13 @@ class NetCat:
                     self.socket.send(buffer.encode())
 
         except KeyboardInterrupt:
-            
+
             print("User terminated.")
             self.socket.close()
             sys.exit()
 
+    def listen(self):
+        pass
         
 
 if __name__ == '__main__':
