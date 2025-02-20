@@ -1,1 +1,1 @@
-This is my remake for the netcat tool for learning, and understanding what is going on under the hood.
+A remake for The NetCat tool for learning, and understanding what is going on under the hood.
