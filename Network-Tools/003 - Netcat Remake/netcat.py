@@ -20,9 +20,9 @@ def execute(cmd):
 
 class NetCat:
     
-    def __init__(self, args, buffer=None):
+    def __init__(self, arguments, buffer=None):
 
-        self.args = args
+        self.arguments = arguments
         self.buffer = buffer
         self.socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
@@ -30,14 +30,14 @@ class NetCat:
 
     def run(self):
 
-        if self.args.listen:
+        if self.arguments.listen:
             self.listen()
         else:
             self.send()
 
     def send(self):
 
-        self.socket.connect((self.args.target, self.args.port))
+        self.socket.connect((self.arguments.target, self.arguments.port))
 
         if self.buffer:
             self.socket.send(self.buffer)
@@ -69,7 +69,7 @@ class NetCat:
             sys.exit()
 
     def listen(self):
-        self.socket.bind((self.args.target, self.args.port))
+        self.socket.bind((self.arguments.target, self.arguments.port))
 
         self.socket.listen(5)
 
@@ -80,11 +80,11 @@ class NetCat:
 
     def handle(self, client_socket):
 
-        if self.args.execute:
-            output = execute(self.args.execute)
-            client_socket.send(output.endcode())
+        if self.arguments.execute:
+            output = execute(self.arguments.execute)
+            client_socket.send(output.encode())
         
-        elif self.args.uplaod:
+        elif self.arguments.upload:
             file_buffer = b""
             while True:
                 data = client_socket.recv(4096)
@@ -93,14 +93,14 @@ class NetCat:
                 else:
                     break
 
-            with open(self.args.upload, "wb") as f:
+            with open(self.arguments.upload, "wb") as f:
                 f.write(file_buffer)
-                message = f"Saved file {self.args.upload}"
+                message = f"Saved file {self.arguments.upload}"
                 client_socket.send(message.encode())
             
-        elif self.args.command:
+        elif self.arguments.command:
             cmd_buffer = b""
-            
+
             while True:
                 try:
 
@@ -143,12 +143,12 @@ netcat.py -t 192.168.1.108 -p 5555                   # connect to server
     parser.add_argument('-t', '--target', default='192.168.1.203', help='specified IP')
     parser.add_argument('-u', '--upload', help='upload file')
     
-    args = parser.parse_args()
+    arguments = parser.parse_args()
     
-    if args.listen:
+    if arguments.listen:
         buffer = ''
     else:
         buffer = sys.stdin.read()
     
-    nc = NetCat(args, buffer.encode())
+    nc = NetCat(arguments, buffer.encode())
     nc.run()
