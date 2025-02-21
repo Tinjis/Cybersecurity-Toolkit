@@ -10,10 +10,4 @@ Cybersecurity-Toolkit/
 │   └── 004 - TCP Proxy/
 ```
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> feaa760e817141591f71208d6140d2f1520f3556
-
 
