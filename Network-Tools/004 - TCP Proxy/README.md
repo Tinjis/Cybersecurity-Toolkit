@@ -1,1 +1,1 @@
-A TCP Proxy with python for learning network programming and what is going on under the hood... 🚧
+A Python TCP Proxy for learning network programming and what is going on under the hood... 🚧
