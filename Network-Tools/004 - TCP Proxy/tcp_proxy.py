@@ -2,30 +2,29 @@ import sys
 import socket
 import threading
 
-HEX_TABLE = ""
+translation_mapping = {}
 for i in range(256):
-    character = chr(i)
-    if len(repr(character)) == 3:
-        HEX_TABLE += character
+    ch = chr(i)
+    if len(repr(ch)) == 3:
+        translation_mapping[i] = ch
     else:
-        HEX_TABLE += "."
-
-TRANSLATION_TABLE = str.maketrans(HEX_TABLE, HEX_TABLE)
+        translation_mapping[i] = "."
+TRANSLATION_TABLE = translation_mapping
 
 def hex_dump(data, length=16, display=True):
     if isinstance(data, bytes):
         data = data.decode(errors='replace')
     
     result = []
-    for i in range(0, len(data), length): 
+    for i in range(0, len(data), length):
         segment = data[i:i+length]
         readable = segment.translate(TRANSLATION_TABLE)
-
-        hex_values = []
+        
+        hex_values_list = []
         for char in segment:
-            hex_values.append(f"{ord(char):02X}")
-        hex_values = ' '.join(hex_values)
-
+            hex_values_list.append(f"{ord(char):02X}")
+        hex_values = ' '.join(hex_values_list)
+        
         formatted_output = f"{i:04x} {hex_values:<{length * 3}} {readable}"
         result.append(formatted_output)
     
