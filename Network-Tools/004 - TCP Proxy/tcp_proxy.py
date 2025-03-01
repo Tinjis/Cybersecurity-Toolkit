@@ -13,7 +13,7 @@ TRANSLATION_TABLE = translation_mapping
 
 def hex_dump(data, length=16, display=True):
     if isinstance(data, bytes):
-        data = data.decode(errors='replace')
+        data = data.decode(errors='ignore')
     
     result = []
     for i in range(0, len(data), length):
