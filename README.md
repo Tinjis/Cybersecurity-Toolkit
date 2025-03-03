@@ -8,7 +8,7 @@ Cybersecurity-Toolkit/
 │   ├── 002 - TCP Client and Server/
 │   ├── 003 - Netcat Remake/
 │   ├── 004 - TCP Inspector Tool /
-│   └── 005 - on going...
+│   └── 005 - DNS Hunting Tool/
 ```
 
 
