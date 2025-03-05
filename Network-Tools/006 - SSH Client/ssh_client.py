@@ -1,4 +1,5 @@
 import paramiko
+import getpass
 
 def ssh_command(ip, port, user, password, cmd):
     
@@ -16,4 +17,11 @@ def ssh_command(ip, port, user, password, cmd):
             print(line.strip())
 
 if __name__ == "__main__":
-    pass
+    user = input("Username: ")
+    password = getpass.getpass()
+
+    ip = input("Enter server IP: ")
+    port = input("Enter port: ") 
+    cmd = input("Enter command: ") 
+    
+    ssh_command(ip, port, user, password, cmd)
