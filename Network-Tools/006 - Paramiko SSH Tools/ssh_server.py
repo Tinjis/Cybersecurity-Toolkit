@@ -12,4 +12,9 @@ class Server (paramiko.ServerInterface):
 
     def __init__(self):
         self.event = threading.Event()
-        
+
+    def check_channel_request(self, kind, chanid):
+        if kind == "session":
+            return paramiko.OPEN_SUCCEEDED
+        return paramiko.OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED
+    
