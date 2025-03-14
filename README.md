@@ -7,8 +7,12 @@ Cybersecurity-Toolkit/
 │   ├── 001 - Port Scanner/
 │   ├── 002 - TCP Client and Server/
 │   ├── 003 - Netcat Remake/
-│   ├── 004 - TCP Inspector Tool /
-│   └── 005 - DNS Hunting Tool/
+│   ├── 004 - TCP Inspector Tool/
+│   ├── 005 - DNS Hunting Tool/
+|   ├── 006 - SSH Tools/
+|   └── 007 - Under construction... 🚧/
+├── Offensive Web Tools/
+│   ├── 001 - Under construction... 🚧/
 ```
 
 
