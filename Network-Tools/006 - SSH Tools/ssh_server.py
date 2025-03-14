@@ -5,9 +5,24 @@ import paramiko
 import socket
 import sys
 import threading
+from cryptography.hazmat.primitives.asymmetric import rsa
+from cryptography.hazmat.primitives import serialization
 
 CWD = os.path.dirname(os.path.realpath(__file__))
-HOSTKEY = paramiko.RSAKey(filename=os.path.join(CWD, "test_rsa.key"))
+KEY_PATH = os.path.join(CWD, "test_rsa.key")
+
+if not os.path.exists(KEY_PATH):
+    key = rsa.generate_private_key(
+        public_exponent=65537,
+        key_size=2048,
+    )
+    with open(KEY_PATH, "wb") as f:
+        f.write(key.private_bytes(
+            encoding=serialization.Encoding.PEM,
+            format=serialization.PrivateFormat.TraditionalOpenSSL,
+            encryption_algorithm=serialization.NoEncryption()
+        ))
+HOSTKEY = paramiko.RSAKey(filename=KEY_PATH)
 
 class SSHServer(paramiko.ServerInterface):
     def __init__(self):
