@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import os
 import paramiko
 import socket
@@ -22,8 +24,17 @@ class SSHServer(paramiko.ServerInterface):
         return paramiko.AUTH_FAILED
 
 if __name__ == "__main__":
-    server_ip = "0.0.0.0"  
-    ssh_port = 2222
+    server_ip = "0.0.0.0" 
+     
+    while True:
+        try:
+            ssh_port = int(input("Enter port to listen on (default 2222): ") or 2222)
+            if 1 <= ssh_port <= 65535:
+                break
+            else:
+                print("Invalid port. Please enter a value between 1 and 65535.")
+        except ValueError:
+            print("Invalid input. Please enter a numeric port.")
 
     try:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
