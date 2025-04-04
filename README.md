@@ -10,7 +10,7 @@ Cybersecurity-Toolkit/
 │   ├── 004 - TCP Inspector Tool/
 │   ├── 005 - DNS Hunting Tool/
 |   ├── 006 - SSH Tools/
-|   └── 007 - Under construction... 🚧/
+|   └── 007 - Packet Sniffing/
 ├── Offensive Web Tools/
 │   ├── 001 - Under construction... 🚧/
 ```
