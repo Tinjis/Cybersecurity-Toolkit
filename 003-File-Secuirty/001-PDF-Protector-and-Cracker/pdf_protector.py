@@ -10,6 +10,7 @@ def securing_pdf(unsecure_pdf, secure_pdf, password):
 
             if pdf_content.is_encrypted:
                 print(f'[!] The input PDF "{unsecure_pdf}" is already encrypted.')
+                return
             upgraded_pdf = PyPDF2.PdfWriter()
 
         for page_num in range(len(pdf_content.pages)):
