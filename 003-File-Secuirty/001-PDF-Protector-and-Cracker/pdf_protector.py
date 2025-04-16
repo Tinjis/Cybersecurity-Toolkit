@@ -13,18 +13,18 @@ def securing_pdf(unsecure_pdf, secure_pdf, password):
                 return
             upgraded_pdf = PyPDF2.PdfWriter()
 
-        for page_num in range(len(pdf_content.pages)):
-            upgraded_pdf.add_page(pdf_content.pages(page_num))
+            for page_num in range(len(pdf_content.pages)):
+                upgraded_pdf.add_page(pdf_content.pages[page_num])
 
-        if pdf_content.metadata:
-            upgraded_pdf.add_metadata(pdf_content.metadata)
+            if pdf_content.metadata:
+                upgraded_pdf.add_metadata(pdf_content.metadata)
 
-        upgraded_pdf.encrypt(password)
+            upgraded_pdf.encrypt(password)
 
-        with open(secure_pdf, "wb") as secure_file:
-            upgraded_pdf.write(secure_file)
+            with open(secure_pdf, "wb") as secure_file:
+                upgraded_pdf.write(secure_file)
 
-        print(f'[*] The Secure Upgraded PDF saved as "{secure_pdf}".')
+            print(f'[*] The Secure Upgraded PDF saved as "{secure_pdf}".')
 
     except Exception as error:
         print(f'[X] An unexpected error occurred while working on "{unsecure_pdf}", Error: {error}')
@@ -47,7 +47,7 @@ def main():
         securing_pdf(input_pdf, output_pdf, password)
     else:
         print("[!] Not enough arguments")
-        print("[->] Usage: python3 script.py <input_pdf.pdf> <output_pdf.pdf> <Password>")
+        print("[->] Usage: python3 script.py <input_pdf.pdf> <output_pdf.pdf>")
         sys.exit(1)
 
 if __name__ == "__main__":
