@@ -1,7 +1,8 @@
 Cybersecurity-Toolkit/
 ├── network-tools/
 │   ├── 001-sniffing/
-│   │   └── 001 - basic-sniffer/                
+│   │   ├── 001 - Basic Sniffer/                
+│   │   ├── 002 - 002-Detailed Packet Logger/
 │
 │   ├── 002-scanning/
 │   │   └── 001 - Port Scanner/                  
