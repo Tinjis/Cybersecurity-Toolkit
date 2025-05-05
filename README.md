@@ -1,20 +1,27 @@
-# Cybersecurity-Toolkit
-_on going_
-
-```
 Cybersecurity-Toolkit/
 ├── network-tools/
-│   ├── 001 - Port Scanner/
-│   ├── 002 - TCP Client and Server/
-│   ├── 003 - Netcat Remake/
-│   ├── 004 - TCP Inspector Tool/
-│   ├── 005 - DNS Hunting Tool/
-|   ├── 006 - SSH Tools/
-|   └── 007 - Packet Sniffing/
-├── Offensive-Web-Tools/
-│   ├── 001 - Under construction... 🚧/
-├── File-Security/
-│   ├── 001 - PDF Protector and Cracker/
-```
+│   ├── 001-sniffing/
+│   │   └── 001 - basic-sniffer/                
+│
+│   ├── 002-scanning/
+│   │   └── 001 - Port Scanner/                  
+│
+│   ├── 003-tcp/
+│   │   ├── 001 - TCP Client and Server/         
+│   │   ├── 002 - Netcat Remake/                 
+│   │   └── 003 - TCP Inspector Tool/            
+│
+│   ├── 004-dns/
+│   │   └── 001 - DNS Hunting Tool/              
+│
+│   ├── 005-ssh/
+│   │   └── 001 - SSH Tools/                     
+│
+├── offensive-web-tools/
+│   └── 001 - Under construction... 🚧/
+
+├── file-security/
+│   └── 001 - PDF Protector and Cracker/
+
 
 
