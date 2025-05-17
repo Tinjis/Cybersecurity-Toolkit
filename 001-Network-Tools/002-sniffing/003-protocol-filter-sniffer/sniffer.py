@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from scapy.all import sniff, Ether, IP, TCP, UDP
 
 protocol_map = { "TCP": 6, "UDP": 17, "ICMP": 1, "ALL": None}
